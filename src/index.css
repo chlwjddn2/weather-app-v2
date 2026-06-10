@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --shadow-glass: 0 4px 24px -4px rgba(0, 100, 200, .18),
+    0 1px 0 rgba(255, 255, 255, .35) inset;
+
+  --color-text-primary: #1a3a5c;
+  --color-text-secondary: #4a6f96;
+  --color-text-accent: #1e7ac4;
+  --color-text-muted: #8aafc8;
+  --color-text-temp: #e8650a;
+  
+
+  --color-bg-wite: rgba(255, 255, 255, .52);
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+:root {
+  --sky-top: rgb(174, 216, 246);
+  --sky-mid: rgb(234, 245, 253);
+  --sky-bottom: rgb(247, 251, 254);
+  --sky-far: #ede8ff;
+}
+
+.sky-bg {
+  background: radial-gradient(ellipse 110% 55% at 20% 5%, var(--sky-top) 0%, transparent 55%), radial-gradient(ellipse 80% 55% at 88% 25%, var(--sky-mid) 0%, transparent 50%), linear-gradient(160deg, var(--sky-bottom) 0%, #dff0fc 50%, var(--sky-far) 100%);
+}
