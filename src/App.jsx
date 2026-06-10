@@ -1,9 +1,8 @@
-import './App.css';
-import Header from './components/Header';
-import CurrentWeather from './components/CurrentWeather';
-import HourlyWeather from './components/HourlyWeather';
-import WeeklyWeather from './components/WeeklyWeather';
-import AirQuality from './components/AirQuality';
+import Header from './components/Header/Header';
+import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import HourlyWeather from './components/HourlyWeather/HourlyWeather';
+import WeeklyWeather from './components/WeeklyWeather/WeeklyWeather';
+import AirQuality from './components/AirQuality/AirQuality';
 
 import { useState, useEffect } from 'react';
 import { getWeatherData, getCityData } from './api/api';
@@ -27,7 +26,8 @@ export default function App() {
 
   const getCiyName = async () => {
     const city = await getCityData(coords.latitude, coords.longitude);
-    setCityName(`${city.address.city } ${city.address.quarter}`);
+    
+    setCityName(`${city.address.city || '' } ${city.address.quarter || city.address.city_district || ''}`);
   }
 
   const getWeather = async () => {

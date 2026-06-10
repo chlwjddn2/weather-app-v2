@@ -1,6 +1,4 @@
 export default function WeeklyItem() {
-  
-  
   return (
     <li className="flex items-center justify-between py-2">
       <p className="w-8 text-sm font-black text-text-muted">월</p>
