@@ -27,3 +27,9 @@ export const getWeatherLabel = (code) => {
   if (code <= 99) return '천둥번개';
   return '';
 }
+
+export const getDay = (dateStr) => {
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+  const date = new Date(dateStr);
+  return days[date.getDay()];
+}

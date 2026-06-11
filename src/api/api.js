@@ -1,6 +1,6 @@
 export const getWeatherData = async (latitude, longitude) => {
   const res = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weathercode&current=temperature_2m,weathercode,apparent_temperature&timezone=Asia/Seoul`
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weathercode&current=temperature_2m,weathercode,apparent_temperature&timezone=Asia/Seoul&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max `
   )
   const weather = await res.json();
 

@@ -58,7 +58,7 @@ export default function App() {
         <Header ></Header>
         <CurrentWeather cityName={cityName} currentWeatherData={weatherData.current}></CurrentWeather>
         <HourlyWeather hourlyWeatherData={weatherData.hourly}></HourlyWeather>
-        <WeeklyWeather></WeeklyWeather>
+        <WeeklyWeather weeklyWeahterData={weatherData.daily}></WeeklyWeather>
         <AirQuality></AirQuality>
       </div>
     </div>
