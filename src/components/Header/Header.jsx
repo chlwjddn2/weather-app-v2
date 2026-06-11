@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="mb-4 flex items-center justify-between">
+    <header className="sticky top-0 z-10 flex items-center justify-between backdrop-blur-sm">
       <div className="flex items-center gap-1">
         <div className="flex h-10 w-10 items-center justify-center rounded-full text-2xl">
           🌤

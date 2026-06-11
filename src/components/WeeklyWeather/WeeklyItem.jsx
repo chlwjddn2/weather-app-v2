@@ -2,14 +2,12 @@ import { getDay } from "../../utils/weatherUtils";
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
 
 export default function WeeklyItem({ time, maxTemp, minTemp, precipitation, weatherCode, isCurrent }) {
-  console.log(isCurrent);
-  
   const day = getDay(time);
   const flooredMaxTemp  = Math.floor(maxTemp);
   const flooredMinTemp  = Math.floor(minTemp);
 
   return (
-    <li className="flex items-center justify-between py-2">
+    <li className={`flex items-center justify-between px-3 py-3 rounded-2xl ${isCurrent ? 'border-2 border-[#8bb6da] bg-[#DDF0FF]' : 'bg-white'}`}>
       <p className="w-8 text-sm font-black text-text-muted text-center">{isCurrent ? '오늘' : day}</p>
 
       <div className="flex items-center gap-1">

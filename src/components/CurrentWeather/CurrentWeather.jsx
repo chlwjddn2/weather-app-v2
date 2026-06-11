@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { getWeatherLabel } from "../../utils/weatherUtils";
 
 export default function CurrentWeather({ cityName, currentWeatherData }) {
-  const [currentWeatherCode, setWeatherCode] = useState('');
   const temp = currentWeatherData.temperature_2m;
   const code = currentWeatherData.weathercode;
   const apparemtTemp = currentWeatherData.apparent_temperature;

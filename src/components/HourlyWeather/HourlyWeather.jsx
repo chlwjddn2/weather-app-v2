@@ -1,7 +1,6 @@
 import HourlyItem from './HourlyItem';
 import { getWeatherText } from "../../utils/weatherUtils";
 import useDragScroll from "../../hooks/useDragScroll";
-import { useEffect } from "react";
 
 export default function HourlyWeather({ hourlyWeatherData }) {
   const times = hourlyWeatherData.time;
@@ -10,7 +9,6 @@ export default function HourlyWeather({ hourlyWeatherData }) {
   const { listRef, onMouseDown, onMouseMove, onMouseUp } = useDragScroll();
 
   const now = new Date();
-
 
   const filtered = times.reduce((acc, time, i) => {
     const itemTime = new Date(time);

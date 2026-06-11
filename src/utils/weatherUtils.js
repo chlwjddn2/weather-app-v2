@@ -28,6 +28,28 @@ export const getWeatherLabel = (code) => {
   return '';
 }
 
+export const getPM10Label = (code) => {
+  if (code <= 30) return '좋음';
+  if (code <= 80) return '보통';
+  if (code <= 150) return '나쁨';
+  return '매우 나쁨';
+}
+
+export const getPM25Label = (code) => {
+  if (code <= 15) return '좋음';
+  if (code <= 35) return '보통';
+  if (code <= 75) return '나쁨';
+  return '매우 나쁨';
+}
+
+export const getPM10Percent = (value) => {
+  return Math.min(Math.floor((value / 150) * 100), 100);
+}
+
+export const getPM25Percent = (value) => {
+  return Math.min(Math.floor((value / 75) * 100), 100);
+}
+
 export const getDay = (dateStr) => {
   const days = ['일', '월', '화', '수', '목', '금', '토'];
   const date = new Date(dateStr);
