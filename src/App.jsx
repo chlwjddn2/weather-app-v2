@@ -2,7 +2,8 @@ import Header from './components/Header/Header';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import HourlyWeather from './components/HourlyWeather/HourlyWeather';
 import WeeklyWeather from './components/WeeklyWeather/WeeklyWeather';
-import AirQuality from './components/AirQuality/AirQuality';
+import AirQuality from './components/AirQuality/AirQuality';;
+import SearchPanel from './components/SearchPanel/SearchPanel';
 
 import { useState, useEffect } from 'react';
 import { getWeatherData, getCityData, getAirQualityData } from './api/api';
@@ -13,6 +14,8 @@ export default function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [airQualityData, setAirQualityData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
 
   const getCurrentLocation = () => {
     navigator.geolocation?.getCurrentPosition((position) => {
@@ -62,7 +65,7 @@ export default function App() {
   return (
     <div className="min-h-screen sky-bg">
       <div className="sticky top-0 z-10 max-w-md mx-auto px-4 py-4 backdrop-blur-sm">
-        <Header />
+        <Header onSearchOpen={() => setIsSearchOpen(true)} />
       </div>
       <div className="max-w-md mx-auto px-4 pb-8">
         <CurrentWeather cityName={cityName} currentWeatherData={weatherData.current} />
@@ -70,6 +73,16 @@ export default function App() {
         <WeeklyWeather weeklyWeahterData={weatherData.daily} />
         <AirQuality airQualityData={airQualityData.hourly} />
       </div>
+      <SearchPanel
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onSelectCity={({ latitude, longitude }) => {
+          setLoading(true);
+          setCoords({ latitude, longitude });
+        }}
+      />
+      
     </div>
+
   )
 }

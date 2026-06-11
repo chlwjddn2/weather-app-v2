@@ -16,6 +16,14 @@ export const getCityData = async (latitude, longitude) => {
   return geoData;
 }
 
+export const searchCity = async (query) => {
+  const res = await fetch(
+    `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=6&accept-language=ko`
+  );
+  const data = await res.json();
+  return data;
+}
+
 export const getAirQualityData = async (latitude, longitude) => {
   const res = await fetch(
     `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&hourly=pm10,pm2_5,uv_index&timezone=Asia/Seoul`
